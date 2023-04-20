@@ -58,9 +58,7 @@ let cities = [
 
 // CODE HERE
 
-const filterCity = cities.filter((endsInI) => {
-  return endsInI.includes('i')
-})
+const filterCity = cities.filter((endsInI) => endsInI[endsInI.length - 1] === 'i')
 
 console.log(filterCity)
 
@@ -111,6 +109,11 @@ let sortedFruits = fruits.forEach((fruit, indexNum) => {
 
 /* 
     Run the code in node to see the result. Then, copy and paste the result below.
+
+// The fruit with the index 0 is neither an apple nor orange.
+// The fruit with the index 1 is an orange.
+// The fruit with the index 2 is neither an apple nor orange.
+// The fruit with the index 3 i an apple.
 
     NOTE: the result should look like this:
     The fruit with index 0 is neither apple or orange
@@ -166,12 +169,15 @@ let foods = [
 
 // CODE HERE
 
-const ricePrices = foods.filter((name) => {
-  return name.tags.includes('rice')
-}).reduce ((acc, curr) => {
-  return acc + curr.price 
-}, 0)
-console.log(ricePrices)
+// const ricePrices = foods.filter((name) => {
+//   return name.tags.includes('rice')
+// }).reduce ((acc, curr) => {
+//   return acc + curr.price 
+// }, 0)
+// console.log(ricePrices)
 
 // THE TOTAL
 // 36
+
+const ricePrices = foods.filter((name) => name.tags.includes('rice')).reduce((acc, curr) => acc + curr.price, 0)
+console.log(ricePrices)
